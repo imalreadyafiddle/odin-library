@@ -14,7 +14,30 @@
 </head>
 
 <body>
-    
+    <div class="overlay hidden"></div>
+        <div class="form-wrapper">
+            <form class="new-book-form hidden" name="new-book-form" action="submit">
+                <fieldset>
+                    <label for="book-form-title">Title</label>
+                    <div class="book-form-title" id="book-form-title"><input type="text" required></div>
+                </fieldset>
+                <fieldset>
+                    <label for=""book-form-author>Author</label>
+                    <div class="book-form-author" id="book-form-author"><input type="text" required></div>
+                </fieldset>
+                <fieldset>
+                    <label for=""book-form-pages>Pages</label>
+                    <div class="book-form-pages" id="book-form-pages"><input type="number" required></div>
+                </fieldset>
+                <fieldset>
+                    <label for=""book-form-title>Read?</label>
+                    <div class="book-form-read" id="book-form-read"><input type="checkbox"></div>
+                </fieldset>
+                <fieldset>
+                    <button class="submit-book-button" type="submit" onclick="submitBookForm;">Submit</button>
+                </fieldset>
+            </form>
+        </div>
     <header class="header-menu">
         <div class="page-logo">library</div>
         <div class="login">

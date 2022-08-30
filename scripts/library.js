@@ -1,9 +1,16 @@
 let myLibrary = [];
 
+document.addEventListener('DOMContentLoaded', () => {
+    let newBookButton = document.querySelector('.add-book-button');
+    newBookButton.addEventListener('click', showBookForm);
+});
 
+document.addEventListener('DOMContentLoaded', () => {
+    let submitBookButton = document.querySelector('.submit-book-button');
+    submitBookButton.addEventListener('click', submitBookForm);
+});
 
 function Book(title, author, pageCount, isRead) {
-    // creates a new book
     this.title = title;
     this.author = author;
     this.pageCount = pageCount;
@@ -12,6 +19,30 @@ function Book(title, author, pageCount, isRead) {
 
 Book.prototype.info = function () {
     return this.title + " by " + this.author + ", " + this.pageCount + " pages, " + this.isRead;
+}
+
+function showBookForm() {
+    let overlay = document.querySelector('.overlay');
+    overlay.classList.toggle('hidden');
+    let formWrapper = document.querySelector('.new-book-form');
+    formWrapper.classList.toggle('hidden');
+}
+
+function submitBookForm() {
+    event.preventDefault();
+    let form = document.querySelector('form');
+    let overlay = document.querySelector('.overlay');
+    let formWrapper = document.querySelector('.new-book-form');
+    let title = document.querySelector("#book-form-title > input[type=text]").value;
+    let author = document.querySelector("#book-form-title > input[type=text]").value;
+    let pages = document.querySelector("#book-form-pages > input[type=number]").value;
+    let checkbox = document.querySelector("#book-form-read > input[type=checkbox]").value;
+    if (title == "" || author == "" || pages == "") {alert("Please enter missing fields"); return;}
+    formWrapper.classList.toggle('hidden');
+    overlay.classList.toggle('hidden');
+    if (checkbox == 'on') {addBookToLibrary(title, author, pages, true)}
+    else {addBookToLibrary(title, author, pages, false)};
+    form.reset();
 }
 
 function addBookToLibrary (title, author, pageCount, isRead) {
