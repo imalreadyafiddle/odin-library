@@ -34,7 +34,7 @@ function submitBookForm() {
     let overlay = document.querySelector('.overlay');
     let formWrapper = document.querySelector('.new-book-form');
     let title = document.querySelector("#book-form-title > input[type=text]").value;
-    let author = document.querySelector("#book-form-title > input[type=text]").value;
+    let author = document.querySelector("#book-form-author > input[type=text]").value;
     let pages = document.querySelector("#book-form-pages > input[type=number]").value;
     let checkbox = document.querySelector("#book-form-read > input[type=checkbox]").value;
     if (title == "" || author == "" || pages == "") {alert("Please enter missing fields"); return;}
