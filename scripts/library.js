@@ -29,18 +29,19 @@ function showBookForm() {
 }
 
 function submitBookForm() {
-    event.preventDefault();
     let form = document.querySelector('form');
     let overlay = document.querySelector('.overlay');
     let formWrapper = document.querySelector('.new-book-form');
     let title = document.querySelector("#book-form-title > input[type=text]").value;
     let author = document.querySelector("#book-form-author > input[type=text]").value;
     let pages = document.querySelector("#book-form-pages > input[type=number]").value;
-    let checkbox = document.querySelector("#book-form-read > input[type=checkbox]").value;
+    let checkbox = document.querySelector("#book-form-read > input[type=checkbox]").checked;
+    console.log(checkbox);
+    event.preventDefault();
     if (title == "" || author == "" || pages == "") {alert("Please enter missing fields"); return;}
     formWrapper.classList.toggle('hidden');
     overlay.classList.toggle('hidden');
-    if (checkbox == 'on') {addBookToLibrary(title, author, pages, true)}
+    if (checkbox == true) {addBookToLibrary(title, author, pages, true)}
     else {addBookToLibrary(title, author, pages, false)};
     form.reset();
 }
