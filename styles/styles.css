@@ -49,14 +49,6 @@ table {
 
 /* END MYER RESET */
 
-* {
-    /* outline: solid 1px var(--color-3); */
-}
-
-body {
-
-}
-
 :root {
     --color-1: #071040;
     --color-2: #1D244B;
